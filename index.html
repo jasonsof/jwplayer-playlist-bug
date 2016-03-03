@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="jwplayer6/jwplayer.js" type="text/javascript"></script>
+    <script>jwplayer.key="";</script>
+  </head>
+  <body>
+    <b>Issue:</b> Playlist does not continue after a 2 second video
+    <br><br>
+    <b>Reproduction steps:</b> Press play
+    <br><br>
+    <b>Expected behavior:</b> I would expect the first video to play and then the next video to play after it has completed, and so on, until the playlist has completed
+    <br><br>
+    <b>Actual outcome:</b> The first video plays and then the playlist stops. The next video doesn't start.  This only happens when the 2 second video is first in the playlist.
+    <br><br><br>
+
+    <div id="video-container">Loading the player ...</div>
+    <script type="text/javascript">
+      var playlist = []
+      playlist.push({file: "videos/3seconds.mp4"})
+      playlist.push({file: "videos/4seconds.mp4"})
+      playlist.push({file: "videos/5seconds.mp4"})
+
+      jwplayer("video-container").setup({
+        playlist: playlist,
+        width: 700,
+        height: 395,
+        repeat: "list"
+      });
+    </script>
+  </body>
+</html>
